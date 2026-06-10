@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Cognix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .title-font { font-family: 'Space Grotesk', sans-serif; }
+        .tech-bg { background: #0a0a0a; background-image: linear-gradient(rgba(34,211,238,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+        .neon { text-shadow: 0 0 20px #22d3ee, 0 0 40px #c026d3; }
+    </style></head>
+<body class="bg-black text-white tech-bg">
+    <!-- Navbar -->
+    <nav class="fixed top-0 z-50 w-full bg-black/90 backdrop-blur-lg border-b border-purple-500/30 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <img src="logoo.jpeg" class="w-12 h-12 object-contain" alt="Cognix">
+                <span class="title-font text-3xl font-bold neon">COGNIX</span>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="cognixbody.html" class="hover:text-purple-400 transition-colors">Home</a>
+                <a href="cognixabout.html" class="hover:text-purple-400 transition-colors">About</a>
+                <a href="cognixevents.html" class="hover:text-purple-400 transition-colors">Events</a>
+                <a href="cognixteams.html" class="hover:text-purple-400 transition-colors">Team</a>
+                <a href="cognixregistration.html" class="hover:text-purple-400 transition-colors">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 text-center">
+        <h1 class="text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">Upcoming Events</h1>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto">Join us for exciting workshops, hackathons, and networking events</p>
+    </section>
+
+    <!-- Events List Section -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div id="events-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        </div>
+    </section>
+
+    <script>
+        const defaultEvents = [
+            { title: "Python & AI Foundations Workshop", date: "Aug 20, 2026", desc: "Hands-on workshop covering Python programming, data structures, AI basics, and practical coding exercises for beginners." },
+            { title: "Generative AI & Prompt Engineering Session", date: "Sep 05, 2026", desc: "Interactive session on Large Language Models, ChatGPT, AI agents, prompt engineering techniques, and real-world GenAI applications.." }
+        ];
+
+        function loadEvents() {
+            const saved = JSON.parse(localStorage.getItem('cognixEvents')) || defaultEvents;
+            const container = document.getElementById('events-list');
+            container.innerHTML = '';
+            saved.forEach((event, index) => {
+                const icons = ['🔬', '💻', '🚀', '📊'];
+                const colors = ['cyan', 'purple', 'pink', 'blue'];
+                const icon = icons[index % icons.length];
+                const color = colors[index % colors.length];
+                container.innerHTML += `
+                    <div class="group relative bg-gradient-to-br from-zinc-900 to-zinc-800 border border-${color}-500/30 hover:border-${color}-500 rounded-2xl p-8 transition-all duration-300 hover:shadow-lg hover:shadow-${color}-500/20 transform hover:-translate-y-2">
+                        <div class="absolute top-6 right-6 text-4xl opacity-20 group-hover:opacity-40 transition-opacity">${icon}</div>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="text-2xl">${icon}</div>
+                            <span class="inline-block px-3 py-1 bg-${color}-500/20 border border-${color}-500/50 text-${color}-400 text-xs font-bold rounded-full">${event.date}</span>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 group-hover:text-${color}-300 transition-colors">${event.title}</h3>
+                        <p class="text-gray-400 mb-6 leading-relaxed">${event.desc}</p>
+                        <a href="cognixregistration.html" class="inline-block px-6 py-2 bg-gradient-to-r from-${color}-500/30 to-${color}-600/30 border border-${color}-500/50 text-${color}-300 font-semibold rounded-lg hover:from-${color}-500/60 hover:to-${color}-600/60 transition-all group-hover:border-${color}-400">Register →</a>
+                    </div>`;
+            });
+        }
+        window.onload = loadEvents;
+    </script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Cognix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .title-font { font-family: 'Space Grotesk', sans-serif; }
+        .tech-bg { background: #0a0a0a; background-image: linear-gradient(rgba(34,211,238,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+        .neon { text-shadow: 0 0 20px #22d3ee, 0 0 40px #c026d3; }
+    </style></head>
+<body class="bg-black text-white tech-bg">
+    <!-- Login Screen -->
+    <div class="min-h-screen flex items-center justify-center px-6" id="loginScreen">
+        <div class="max-w-md w-full">
+            <div class="text-center mb-12">
+                <h1 class="title-font text-5xl font-bold neon mb-2">COGNIX</h1>
+                <p class="text-gray-400">Admin Access Portal</p>
+            </div>
+            <div class="bg-gradient-to-br from-purple-500/10 to-purple-500/5 border border-purple-500/30 rounded-2xl p-10 shadow-xl">
+                <h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                    <i class="fas fa-lock text-purple-500"></i>
+                    Admin Login
+                </h2>
+                <div class="mb-6">
+                    <label class="block text-sm font-semibold text-gray-300 mb-3">Password</label>
+                    <input type="password" id="password" placeholder="Enter admin password" class="w-full px-6 py-3 bg-zinc-800/50 border border-zinc-700 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all placeholder-gray-600">
+                </div>
+                <button onclick="login()" class="w-full py-4 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold rounded-xl transition-all transform hover:scale-105 shadow-lg hover:shadow-purple-500/50">
+                    <i class="fas fa-sign-in-alt mr-2"></i>Login
+                </button>
+            </div>
+            <p class="text-center text-xs text-gray-500 mt-8">
+                <i class="fas fa-shield-alt mr-2"></i>This is a restricted area for authorized administrators only
+            </p>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="adminPanel" class="hidden">
+        <!-- Header -->
+        <nav class="fixed top-0 z-50 w-full bg-black/90 backdrop-blur-lg border-b border-purple-500/30 shadow-lg">
+            <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+                <div class="flex items-center gap-4">
+                    <img src="logoo.jpeg" class="w-12 h-12 object-contain" alt="Cognix">
+                    <span class="title-font text-2xl font-bold neon">COGNIX ADMIN</span>
+                </div>
+                <button onclick="logout()" class="px-6 py-2 bg-purple-600/20 border border-purple-500 hover:bg-purple-600/40 text-purple-400 font-semibold rounded-lg transition-all">
+                    <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <div class="pt-24 pb-20 max-w-6xl mx-auto px-6">
+            <div class="mb-12">
+                <h1 class="text-5xl font-bold mb-3 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">Admin Dashboard</h1>
+                <p class="text-gray-400">Manage events and content for Cognix</p>
+            </div>
+
+            <!-- Add Event Section -->
+            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                <div class="bg-gradient-to-br from-purple-500/10 to-purple-500/5 border border-purple-500/30 rounded-2xl p-10">
+                    <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                        <i class="fas fa-calendar-plus text-purple-400"></i>
+                        Add New Event
+                    </h3>
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-300 mb-2">Event Title</label>
+                            <input id="eventTitle" placeholder="e.g., AI Hackathon 2026" class="w-full px-6 py-3 bg-zinc-800/50 border border-zinc-700 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-300 mb-2">Event Date</label>
+                            <input id="eventDate" placeholder="e.g., June 20, 2026" class="w-full px-6 py-3 bg-zinc-800/50 border border-zinc-700 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-300 mb-2">Event Description</label>
+                            <textarea id="eventDesc" placeholder="Describe the event..." class="w-full h-32 px-6 py-3 bg-zinc-800/50 border border-zinc-700 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all resize-none"></textarea>
+                        </div>
+                        <button onclick="addEvent()" class="w-full py-4 bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold rounded-xl transition-all transform hover:scale-105 shadow-lg">
+                            <i class="fas fa-plus mr-2"></i>Add Event
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Events List -->
+                <div class="bg-gradient-to-br from-purple-500/10 to-purple-500/5 border border-purple-500/30 rounded-2xl p-10">
+                    <h3 class="text-2xl font-bold mb-8 flex items-center gap-3">
+                        <i class="fas fa-list text-purple-400"></i>
+                        Current Events
+                    </h3>
+                    <div id="eventsList" class="space-y-4 max-h-96 overflow-y-auto">
+                        <p class="text-gray-400 text-center py-8">Loading events...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ADMIN_PASSWORD = "cognix2026"; // Change this!
+
+        function login() {
+            if (document.getElementById('password').value === ADMIN_PASSWORD) {
+                document.getElementById('loginScreen').classList.add('hidden');
+                document.getElementById('adminPanel').classList.remove('hidden');
+                loadEventsList();
+            } else {
+                alert("Incorrect password");
+                document.getElementById('password').value = '';
+            }
+        }
+
+        function logout() {
+            document.getElementById('adminPanel').classList.add('hidden');
+            document.getElementById('loginScreen').classList.remove('hidden');
+            document.getElementById('password').value = '';
+        }
+
+        function addEvent() {
+            const title = document.getElementById('eventTitle').value;
+            const date = document.getElementById('eventDate').value;
+            const desc = document.getElementById('eventDesc').value;
+            
+            if (!title || !date) {
+                alert("Title and Date are required");
+                return;
+            }
+
+            let events = JSON.parse(localStorage.getItem('cognixEvents')) || [];
+            events.push({ title, date, desc });
+            localStorage.setItem('cognixEvents', JSON.stringify(events));
+            
+            alert("Event added successfully!");
+            document.getElementById('eventTitle').value = '';
+            document.getElementById('eventDate').value = '';
+            document.getElementById('eventDesc').value = '';
+            loadEventsList();
+        }
+
+        function deleteEvent(index) {
+            let events = JSON.parse(localStorage.getItem('cognixEvents')) || [];
+            events.splice(index, 1);
+            localStorage.setItem('cognixEvents', JSON.stringify(events));
+            loadEventsList();
+        }
+
+        function loadEventsList() {
+            const events = JSON.parse(localStorage.getItem('cognixEvents')) || [];
+            const container = document.getElementById('eventsList');
+            
+            if (events.length === 0) {
+                container.innerHTML = '<p class="text-gray-400 text-center py-8">No events yet</p>';
+                return;
+            }
+
+            container.innerHTML = events.map((event, index) => `
+                <div class="bg-zinc-800/50 border border-orange-500/20 rounded-lg p-4 flex justify-between items-start">
+                    <div class="flex-1">
+                        <h4 class="font-bold text-orange-300">${event.title}</h4>
+                        <p class="text-sm text-gray-400">${event.date}</p>
+                    </div>
+                    <button onclick="deleteEvent(${index})" class="px-3 py-1 bg-red-600/20 border border-red-500/50 text-red-400 text-xs font-semibold rounded hover:bg-red-600/40 transition">
+                        <i class="fas fa-trash mr-1"></i>Delete
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        // Load events on admin panel load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Events will be loaded when user logs in
+        });
+    </script>
+</body>
+</html>

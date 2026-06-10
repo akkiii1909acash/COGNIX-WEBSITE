@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Cognix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .title-font { font-family: 'Space Grotesk', sans-serif; }
+        .tech-bg { background: #0a0a0a; background-image: linear-gradient(rgba(34,211,238,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+        .neon { text-shadow: 0 0 20px #22d3ee, 0 0 40px #c026d3; }
+    </style></head>
+<body class="bg-black text-white tech-bg">
+    <!-- Navbar -->
+    <nav class="fixed top-0 z-50 w-full bg-black/90 backdrop-blur-lg border-b border-purple-500/30 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <img src="logoo.jpeg" class="w-12 h-12 object-contain" alt="Cognix">
+                <span class="title-font text-3xl font-bold neon">COGNIX</span>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="cognixbody.html" class="hover:text-purple-400 transition-colors">Home</a>
+                <a href="cognixabout.html" class="hover:text-purple-400 transition-colors">About</a>
+                <a href="cognixevents.html" class="hover:text-purple-400 transition-colors">Events</a>
+                <a href="cognixteams.html" class="hover:text-purple-400 transition-colors">Team</a>
+                <a href="cognixregistration.html" class="hover:text-purple-400 transition-colors">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-12 text-center">
+        <h1 class="text-6xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">Event Registration</h1>
+        <p class="text-gray-300 text-lg">Join our community and be part of the AI revolution</p>
+    </section>
+    <!-- Registration Form Section -->
+    <section class="pb-24 px-6">
+        <div class="max-w-lg mx-auto">
+            <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" class="bg-gradient-to-br from-zinc-900/80 to-zinc-800/80 border border-purple-500/30 backdrop-blur-sm p-12 rounded-2xl space-y-6 shadow-2xl hover:border-purple-500/50 transition-all">
+                <!-- Name Field -->
+                <div class="group">
+                    <label class="block text-sm font-semibold text-gray-300 mb-2">Full Name</label>
+                    <input type="text" name="name" placeholder="Enter your full name" required class="w-full px-6 py-4 bg-zinc-800/50 border border-zinc-700 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all placeholder-gray-500">
+                </div>
+
+                <!-- Email Field -->
+                <div class="group">
+                    <label class="block text-sm font-semibold text-gray-300 mb-2">College Email</label>
+                    <input type="email" name="email" placeholder="your.email@chandigarh.ac.in" required class="w-full px-6 py-4 bg-zinc-800/50 border border-zinc-700 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all placeholder-gray-500">
+                </div>
+
+                <!-- UID Field -->
+                <div class="group">
+                    <label class="block text-sm font-semibold text-gray-300 mb-2">University UID</label>
+                    <input type="text" name="uid" placeholder="Your 7-digit UID" required class="w-full px-6 py-4 bg-zinc-800/50 border border-zinc-700 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all placeholder-gray-500">
+                </div>
+
+                <!-- Event Selection -->
+                <div class="group">
+                    <label class="block text-sm font-semibold text-gray-300 mb-2">Select Event</label>
+                    <select name="event" class="w-full px-6 py-4 bg-zinc-800/50 border border-zinc-700 rounded-xl focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all text-gray-300">
+                        <option class="bg-zinc-900">Python & AI Foundations Workshop</option>
+                        <option class="bg-zinc-900">Generative AI & Prompt Engineering Session</option>
+                        <option class="bg-zinc-900">Computer Vision Workshop</option>
+                        <option class="bg-zinc-900">AI Ethics Lecture</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="w-full py-4 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-bold text-lg rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-purple-500/50">Register Now</button>
+            </form>
+
+            <p class="text-center text-sm text-gray-400 mt-8">
+                <i class="fas fa-shield-alt mr-2"></i>Your information is secure and will only be used for event purposes.
+            </p>
+        </div>
+    </section>
+</body>
+</html>

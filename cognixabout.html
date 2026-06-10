@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Cognix</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .title-font { font-family: 'Space Grotesk', sans-serif; }
+        .tech-bg { background: #0a0a0a; background-image: linear-gradient(rgba(34,211,238,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,0.04) 1px, transparent 1px); background-size: 60px 60px; }
+        .neon { text-shadow: 0 0 20px #22d3ee, 0 0 40px #c026d3; }
+    </style>
+</head>
+<body class="bg-black text-white tech-bg">
+    <!-- Navbar -->
+    <nav class="fixed top-0 z-50 w-full bg-black/90 backdrop-blur-lg border-b border-purple-500/30 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <img src="logoo.jpeg" class="w-12 h-12 object-contain" alt="Cognix">
+                <span class="title-font text-3xl font-bold neon">COGNIX</span>
+            </div>
+            <div class="hidden md:flex gap-8 text-sm font-medium">
+                <a href="cognixbody.html" class="hover:text-purple-400 transition-colors">Home</a>
+                <a href="cognixabout.html" class="hover:text-purple-400 transition-colors">About</a>
+                <a href="cognixevents.html" class="hover:text-purple-400 transition-colors">Events</a>
+                <a href="cognixteams.html" class="hover:text-purple-400 transition-colors">Team</a>
+                <a href="cognixregistration.html" class="hover:text-purple-400 transition-colors">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 text-center">
+        <h1 class="text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-transparent">About Cognix</h1>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto">Pioneering AI & ML Excellence at Chandigarh University</p>
+    </section>
+
+    <!-- About Content Section -->
+    <section class="pb-24 max-w-7xl mx-auto px-6">
+        <!-- Mission Card -->
+        <div class="mb-16 bg-gradient-to-br from-purple-500/10 via-purple-500/10 to-purple-600/10 border border-purple-500/20 rounded-2xl p-12 hover:border-purple-500/50 transition-all duration-300">
+            <div class="flex items-start gap-6">
+                <div class="text-4xl text-purple-400 mt-2">🎯</div>
+                <div>
+                    <h2 class="text-3xl font-bold mb-4">Our Mission</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed">Cognix is the premier Artificial Intelligence and Machine Learning technical club of Chandigarh University. We are a community of passionate students, researchers, and innovators dedicated to exploring and building intelligent systems that shape the future.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Goals Section -->
+        <div class="mb-16 bg-gradient-to-br from-purple-500/10 via-purple-600/10 to-purple-700/10 border border-purple-500/20 rounded-2xl p-12 hover:border-purple-500/50 transition-all duration-300">
+            <div class="flex items-start gap-6">
+                <div class="text-4xl mt-2">🚀</div>
+                <div>
+                    <h2 class="text-3xl font-bold mb-4">Our Vision</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed">To bridge the gap between academic learning and real-world AI applications through workshops, hackathons, projects, and industry interactions. We empower our members to become leaders in artificial intelligence and machine learning.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- What We Do Grid -->
+        <div class="mb-16">
+            <h2 class="text-4xl font-bold mb-8 text-center">What We Do</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="group bg-zinc-900/50 border border-cyan-500/20 hover:border-cyan-500 rounded-xl p-8 text-center transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 transform hover:scale-105">
+                    <div class="text-3xl mb-4">📚</div>
+                    <h3 class="font-bold text-lg mb-2">Workshops</h3>
+                    <p class="text-sm text-gray-400">Learn cutting-edge AI/ML technologies</p>
+                </div>
+                <div class="group bg-zinc-900/50 border border-purple-500/20 hover:border-purple-500 rounded-xl p-8 text-center transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 transform hover:scale-105">
+                    <div class="text-3xl mb-4">💻</div>
+                    <h3 class="font-bold text-lg mb-2">Hackathons</h3>
+                    <p class="text-sm text-gray-400">Build innovative solutions in competitions</p>
+                </div>
+                <div class="group bg-zinc-900/50 border border-pink-500/20 hover:border-pink-500 rounded-xl p-8 text-center transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20 transform hover:scale-105">
+                    <div class="text-3xl mb-4">🔬</div>
+                    <h3 class="font-bold text-lg mb-2">Projects</h3>
+                    <p class="text-sm text-gray-400">Collaborate on real-world AI projects</p>
+                </div>
+                <div class="group bg-zinc-900/50 border border-blue-500/20 hover:border-blue-500 rounded-xl p-8 text-center transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20 transform hover:scale-105">
+                    <div class="text-3xl mb-4">🤝</div>
+                    <h3 class="font-bold text-lg mb-2">Networking</h3>
+                    <p class="text-sm text-gray-400">Connect with industry professionals</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="bg-gradient-to-r from-purple-600/20 to-purple-700/20 border border-purple-500/30 rounded-2xl p-12 text-center">
+            <h3 class="text-2xl font-bold mb-4">Join Our Community</h3>
+            <p class="text-gray-300 mb-8">Be part of something extraordinary. Learn, innovate, and grow with us.</p>
+            <a href="cognixregistration.html" class="inline-block px-8 py-4 bg-gradient-to-r from-purple-500 to-purple-600 text-white font-bold rounded-xl hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300 transform hover:scale-105">Register Now</a>
+        </div>
+    </section>
+</body>
+</html>
